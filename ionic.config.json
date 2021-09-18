@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-lock-screen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
