@@ -6,16 +6,18 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { PopupModule } from '../popup/popup.module';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule,
-    PopupModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        HomePageRoutingModule,
+        PopupModule,
+        MatProgressSpinnerModule,
+    ],
   declarations: [HomePage]
 })
 export class HomePageModule {}

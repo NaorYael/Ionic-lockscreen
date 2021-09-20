@@ -17135,10 +17135,10 @@ define('WinJS/Animations',[
         showPopup: function (element, offset) {
             /// <signature helpKeyword="WinJS.UI.Animation.showPopup">
             /// <summary locid="WinJS.UI.Animation.showPopup">
-            /// Displays an element or elements in the style of a popup.
+            /// Displays an element or elements in the style of a weather-popup.
             /// </summary>
             /// <param name="element" locid="WinJS.UI.Animation.showPopup_p:element">
-            /// Single element or collection of elements to be shown like a popup.
+            /// Single element or collection of elements to be shown like a weather-popup.
             /// </param>
             /// <param name="offset" locid="WinJS.UI.Animation.showPopup_p:offset">
             /// Optional offset object or collection of offset objects
@@ -17181,10 +17181,10 @@ define('WinJS/Animations',[
         hidePopup: function (element) {
             /// <signature helpKeyword="WinJS.UI.Animation.hidePopup" >
             /// <summary locid="WinJS.UI.Animation.hidePopup">
-            /// Removes a popup from the screen.
+            /// Removes a weather-popup from the screen.
             /// </summary>
             /// <param name="element" locid="WinJS.UI.Animation.hidePopup_p:element">
-            /// Single element or collection of elements to be hidden like a popup.
+            /// Single element or collection of elements to be hidden like a weather-popup.
             /// When the animation completes, the application should hide the elements
             /// or remove them from the document.
             /// </param>

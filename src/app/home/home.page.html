@@ -1,34 +1,61 @@
-  <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
+<ion-header translucent="true">
+    <ion-toolbar>
         <ion-title size="small">
-          <span class="a">{{level}}%</span>
-          <span class="b"><img src="{{batteryIcon}}" width="1vw" alt=""></span>
-          <span class="c">{{ today | date:'shortTime'  }}</span>
+            <span class="battery-level" *ngIf="level">{{level === -1 ? 0 : level}}%</span>
+            <span class="battery-icon" *ngIf="batteryIcon">
+                    <i class="{{batteryIcon}}"></i>
+                </span>
+            <span class="clock" *ngIf="today">{{ today | date:'shortTime' }}</span>
         </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <div id="container">
-      <div class="weather">
-      <div class="time">{{ today | date:'shortTime'  }}</div>
-      <div class="date">{{ today | date:'fullDate'  }}</div>
-      <br>
+    </ion-toolbar>
+</ion-header>
 
-        <div><strong>{{(weather?.temperature) - 273.15 | number: '1.0-0'}}  ℃</strong></div>
-        <div>{{cityname}}</div>
-        <img [src]="weather?.image" (click)="openModal()"/>
-      </div>
+<ion-content fullscreen="true">
+    <ion-content [fullscreen]="true">
 
-    </div>
-  </ion-content>
+        <div class="container">
+            <div class="weather-and-time" *ngIf="!showSpinner && today else spinner">
+                <div class="time">{{ today | date:'shortTime' }}</div>
+                <div class="date">{{ today | date:'fullDate' }}</div>
+                <br>
+                <div class="weather">
+                    <div class="temperature-and-city">
+                        <div class="temperature">
+                            {{weather?.temperature | number: '1.0-0' }}
+                            <span> ℃</span>
+                        </div>
 
+                        <div class="city" *ngIf="cityName"> {{cityName}}</div>
+                    </div>
+                    <div class="weather-icon">
+                        <img [src]="weather.image" (click)="openModal()"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <ng-template #spinner>
+                <mat-spinner diameter="100" class="spinner-position" color="accent"></mat-spinner>
+            </ng-template>
+
+        </div>
+
+    </ion-content>
+</ion-content>
 <div class="ticker-wrap">
-  <div class="ticker">
-    <div class="ticker__item">{{news?.author}}</div>
-    <div class="ticker__item">{{news?.title}}</div>
-    <a class="ticker__item">{{news?.url}}</a>
-    <p>{{news?.description}}</p>
-  </div>
-  </div>
+    <div class="ticker" *ngIf="!newsSpinner && news else loading;">
+        <div *ngFor="let n of news">
+            <a class="ticker__item" href="{{n.url}}">{{n.title}}</a> |
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <div class="ticker loading">
+            <div class="ticker__item">loading...</div>
+        </div>
+    </ng-template>
+</div>
+
+
 
 

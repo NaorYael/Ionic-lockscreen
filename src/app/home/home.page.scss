@@ -1,38 +1,52 @@
-//--------custom css start-----------------//
+$duration: 25s;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-bottom: 5rem;
+}
+
+h1, h2, p {
+  padding: 0 5%;
+}
+
+ion-content, ion-toolbar {
+  --ion-background-color: url('../../assets/background/background.jpg');
+}
+
+ion-toolbar, ion-header {
+  --min-height: 4vh;
+}
 
 ion-toolbar {
   width: 100%;
-  height: 8vh;
+  height: 4vh;
+
   ion-title {
-    height: 4.5vh;
-    width: 90vw;
+    height: 4vh;
+    width: 96vw;
     position: absolute;
-    left: calc(50% - 90vw / 2);
-    top: calc(50% - 4.5vh / 2);
-    float: left;
-    text-align: right;
+    left: calc(50% - 96vw / 2);
+    top: calc(50% - 4vh / 2);
+    float: right;
+    text-align: left;
+    color: white;
+
+    span.clock {
+      float: right;
+    }
+
+    span.battery-icon {
+      padding-left: 1vw;
+    }
+
   }
 }
 
-ion-content{
-  --ion-background-color:linear-gradient(#e66465, #9198e5);
-}
-
-ion-toolbar {
-  --ion-background-color:linear-gradient(#e66465);
-}
-
-.time {
-  font-size: 50px;
-  padding: 20px;
-}
-
-.date, span {
-  font-size: large;
-}
-
-.title {
-  text-align: right;
+.container {
+  text-align: center;
   position: absolute;
   left: 0;
   right: 0;
@@ -40,66 +54,120 @@ ion-toolbar {
   transform: translateY(-50%);
 }
 
-img {
-  height: 100px;
-  width: 100px;
-}
-
-.wrapp-img {
-  text-align: right;
-  position: absolute;
-  right: 0;
-  height: 50px;
-  width: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-span.a {
-  text-align: right;
-  position: absolute;
-  left: 0;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-}
-
-span.b img {
-  width: inherit;
-  height: 4vh;
-}
-
-span.b {
-  right: -10px;
-  height: 3vh;
-  width: 9vw;
-  position: absolute;
-  top: 0;
-  color: white;
-}
-
-span.c  {
-  left: -10px;
-  height: 10vh;
-  width: 25vw;
-  position: absolute;
-  top: 0;
-  color: white;
-}
-
-.weather {
+.weather-and-time {
   display: block;
-  width: 100%;
+  width: 80vw;
+  position: relative;
+  left: calc(50% - 80vw / 2);
+  border-radius: 3vw;
   height: 100%;
   color: white;
+
+  .time {
+    font-size: 15vw;
+    line-height: 15vw;
+    padding: 3vw;
+  }
+
+  .date {
+    font-size: 3vw;
+  }
+
+  .weather {
+    display: inline-block;
+    padding: 3vw;
+
+    .temperature-and-city {
+      width: 50%;
+      position: absolute;
+      left: 0;
+      padding-left: 10vw;
+
+      .temperature {
+        font-weight: bold;
+        font-size: 10vw;
+      }
+
+      span {
+        font-size: 5vw;
+      }
+
+      .city {
+        padding: 1vw;
+        font-size: 3vw;
+      }
+
+    }
+
+    .weather-icon {
+      position: absolute;
+      right: 0;
+      width: 50%;
+      margin: auto;
+      top: 65%;
+
+      img {
+        width: 100%;
+        padding-right: 10vw;
+      }
+    }
+  }
 }
 
-//--------custom css end-----------------//
 
-//----------------------news style start--------------//
-* { box-sizing: border-box; }
-$duration: 30s;
+.spinner-position {
+  left: calc(50% - 100px / 2);
+  color: white;
+}
+
+// ---------------------- news ---------------------- //
+
+.ticker-wrap {
+  position: absolute;
+  bottom: 1vw;
+  width: 100%;
+  overflow: hidden;
+  height: 4vh;
+  background-color: rgba(#000, 0.75);
+  padding-left: 100%;
+  box-sizing: content-box;
+
+  .ticker {
+    display: inline-block;
+    height: 3.7vh;
+    line-height: 3.7vh;
+    white-space: nowrap;
+    box-sizing: content-box;
+    padding-right: 100%;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: $duration;
+    animation-duration: $duration;
+
+    &__item {
+      display: inline-block;
+
+      padding: 0 2rem;
+      font-size: 2.5vh;
+      color: white;
+
+    }
+
+  }
+
+  .loading {
+    -webkit-animation-duration: $duration - 22;
+    animation-duration: $duration - 22;
+  }
+
+}
+
+// ----- animation ----- //
 
 @-webkit-keyframes ticker {
   0% {
@@ -125,79 +193,4 @@ $duration: 30s;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
-}
-
-.ticker-wrap {
-
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  height: 4rem;
-  background-color: rgba(#000, 0.9);
-  padding-left: 100%;
-  box-sizing: content-box;
-
-  .ticker {
-
-    display: inline-block;
-    height: 4rem;
-    line-height: 4rem;
-    white-space: nowrap;
-    padding-right: 100%;
-    box-sizing: content-box;
-
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-   -webkit-animation-name: ticker;
-           animation-name: ticker;
-    -webkit-animation-duration: $duration;
-            animation-duration: $duration;
-
-    &__item {
-
-      display: inline-block;
-
-      padding: 0 2rem;
-      font-size: 2rem;
-      color: white;
-
-    }
-
-  }
-
-}
-
-body { padding-bottom: 5rem; }
-h1,h2,p {padding: 0 5%;}
-
-//----------------------news style end--------------//
-
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
 }

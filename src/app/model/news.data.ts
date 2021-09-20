@@ -1,14 +1,12 @@
 export interface NewsData {
+    articles: Article[];
+}
 
-  status: string;
-  articles: [
-    {
-      author: string;
-      title: string;
-      description: string;
-      url: string;
-      publishedAt: string;
-      content: string;
-    }
-  ];
+interface Article {
+    author: string,
+    title: string,
+    description: string,
+    url: string,
+    publishedAt: string,
+    content: string
 }

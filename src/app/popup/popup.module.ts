@@ -4,8 +4,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {FlexModule} from '@angular/flex-layout';
-import {ModalService} from './popup.service';
-import {WeatherPopupComponent} from './templates/popup/weather-popup.component';
+import {WeatherPopupComponent} from './weather-popup/weather-popup.component';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import {WeatherPopupComponent} from './templates/popup/weather-popup.component';
   ],
   declarations: [WeatherPopupComponent],
   exports: [WeatherPopupComponent],
-  entryComponents: [WeatherPopupComponent],
-  providers: [ModalService]
+  entryComponents: [WeatherPopupComponent]
 })
 export class PopupModule { }

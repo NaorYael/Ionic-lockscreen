@@ -20172,7 +20172,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 3679);
 /* harmony import */ var _home_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.page */ 2267);
 /* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home-routing.module */ 2003);
-/* harmony import */ var _popup_popup_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../popup/popup.module */ 8298);
+/* harmony import */ var _popup_popup_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../weather-popup/weather-popup.module */ 8298);
 
 
 
@@ -20214,7 +20214,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 4762);
 /* harmony import */ var _raw_loader_home_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./home.page.html */ 9764);
 /* harmony import */ var _home_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.page.scss */ 2610);
-/* harmony import */ var _popup_popup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../popup/popup.service */ 7829);
+/* harmony import */ var _popup_popup_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../weather-popup/weather-popup.service */ 7829);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _ionic_native_battery_status_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/battery-status/ngx */ 6742);
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ 7152);
@@ -20249,8 +20249,8 @@ let HomePage = class HomePage {
             this.lon = resp.coords.longitude;
             this.subArr.push(this.service.getCountryCodeByLatAndLon(this.lat, this.lon)
                 .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_6__.switchMap)((res) => {
-                this.cityname = res[0].name;
-                return this.service.getWeatherByCityName(this.cityname);
+                this.cityName = res[0].name;
+                return this.service.getWeatherByCityName(this.cityName);
             })).subscribe((weather) => {
                 this.weather = weather;
             }, (error) => {
@@ -20326,7 +20326,7 @@ HomePage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
 
 /***/ 8298:
 /*!***************************************!*\
-  !*** ./src/app/popup/popup.module.ts ***!
+  !*** ./src/app/weather-popup/weather-popup.module.ts ***!
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20341,8 +20341,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button */ 1095);
 /* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout */ 5618);
-/* harmony import */ var _popup_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popup.service */ 7829);
-/* harmony import */ var _templates_popup_weather_popup_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./templates/popup/weather-popup.component */ 9690);
+/* harmony import */ var _popup_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather-popup.service */ 7829);
+/* harmony import */ var _templates_popup_weather_popup_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./templates/weather-popup/weather-weather-popup.component */ 9690);
 
 
 
@@ -20374,7 +20374,7 @@ PopupModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
 
 /***/ 7829:
 /*!****************************************!*\
-  !*** ./src/app/popup/popup.service.ts ***!
+  !*** ./src/app/weather-popup/weather-popup.service.ts ***!
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20384,7 +20384,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ModalService": () => (/* binding */ ModalService)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _templates_popup_weather_popup_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates/popup/weather-popup.component */ 9690);
+/* harmony import */ var _templates_popup_weather_popup_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates/weather-popup/weather-weather-popup.component */ 9690);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
 
@@ -20417,7 +20417,7 @@ ModalService = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
 
 /***/ 9690:
 /*!******************************************************************!*\
-  !*** ./src/app/popup/templates/popup/weather-popup.component.ts ***!
+  !*** ./src/app/weather-popup/templates/weather-popup/weather-weather-popup.component.ts ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20427,8 +20427,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "WeatherPopupComponent": () => (/* binding */ WeatherPopupComponent)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 4762);
-/* harmony import */ var _raw_loader_weather_popup_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./weather-popup.component.html */ 4210);
-/* harmony import */ var _weather_popup_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather-popup.component.scss */ 737);
+/* harmony import */ var _raw_loader_weather_popup_component_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./weather-weather-popup.component.html */ 4210);
+/* harmony import */ var _weather_popup_component_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather-weather-popup.component.scss */ 737);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ 2238);
 
@@ -20446,7 +20446,7 @@ WeatherPopupComponent.ctorParameters = () => [
 ];
 WeatherPopupComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
-        selector: 'app-weather-popup',
+        selector: 'app-weather-weather-popup',
         template: _raw_loader_weather_popup_component_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_weather_popup_component_scss__WEBPACK_IMPORTED_MODULE_1__.default]
     })
@@ -20473,7 +20473,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 737:
 /*!********************************************************************!*\
-  !*** ./src/app/popup/templates/popup/weather-popup.component.scss ***!
+  !*** ./src/app/weather-popup/templates/weather-popup/weather-weather-popup.component.scss ***!
   \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -20503,7 +20503,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 4210:
 /*!**********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/popup/templates/popup/weather-popup.component.html ***!
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/weather-popup/templates/weather-popup/weather-weather-popup.component.html ***!
   \**********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 

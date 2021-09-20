@@ -1,0 +1,33 @@
+<div class="main-box">
+  <div class="box">
+    <mat-card class="card" *ngIf="weather">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title class="title">{{weather.name}}, {{weather.country}}</mat-card-title>
+        <mat-card-subtitle>
+          <h1>{{weather.temperature | number: '1.0-0'}} ℃</h1>
+          <p>
+            Feels like {{weather.feelsLike | number: '1.0-0'}} ℃
+          </p>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{weather.image}}">
+      <mat-card-content>
+        <p>
+          {{weather.description}}
+        </p>
+        <p>
+          speed: {{weather.wind}} km/h
+        </p>
+        <p>
+          coordination: lat {{weather.lat}} / lon {{weather.lon}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="button" mat-raised-button (click)="dialogRef.close(true)"><span class="font-bold">Close</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>
